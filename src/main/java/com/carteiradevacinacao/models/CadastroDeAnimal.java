@@ -1,7 +1,8 @@
 package com.carteiradevacinacao.models;
 
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,8 +23,8 @@ public class CadastroDeAnimal {
     @Column(name="Nome", length = 100, nullable = false)
     private String nome;
 
-    // @Column(name="Data de nascimento", nullable = false)
-    // private LocalDate dataDeNascimento = LocalDate.now();
+    @Column(name="Data de nascimento", nullable = false)
+    private Date dataDeNascimento;
 
     @Column(name="Espécie", length = 8, nullable = false)
     private String especie;
@@ -60,13 +61,13 @@ public class CadastroDeAnimal {
         this.nome = nome;
     }
 
-    // public LocalDate getDataDeNascimento() {
-    //     return dataDeNascimento;
-    // }
+    public LocalDate getDataDeNascimento() {
+        return dataDeNascimento;
+    }
 
-    // public void setDataDeNascimento(LocalDate dataDeNascimento) {
-    //     this.dataDeNascimento = dataDeNascimento;
-    // }
+    public void setDataDeNascimento(LocalDate dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
+    }
 
     public String getEspecie() {
         return especie;
