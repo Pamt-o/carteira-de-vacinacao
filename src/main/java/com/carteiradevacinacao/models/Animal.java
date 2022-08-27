@@ -2,8 +2,6 @@ package com.carteiradevacinacao.models;
 
 
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,36 +10,37 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cadastro")
-public class CadastroDeAnimal {
+
+@Table(name="CADASTROS_ANIMAIS")
+public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Id")
+    @Column(name="ID")
     private int id;
 
-    @Column(name="Nome", length = 100, nullable = false)
+    @Column(name="NOME", length = 100, nullable = false)
     private String nome;
 
-    @Column(name="Data de nascimento", nullable = false)
-    private Date dataDeNascimento;
+    @Column(name="DATA_DE_NASCIMENTO", nullable = false)
+    private java.sql.Date dataDeNascimento;
 
-    @Column(name="Espécie", length = 8, nullable = false)
+    @Column(name="ESPECIE", length = 8, nullable = false)
     private String especie;
 
-    @Column(name="Cor da pelagem", length = 100)
+    @Column(name="COR_DA_PELAGEM", length = 100)
     private String corDaPelagem;
 
-    @Column(name="Raça", length = 100, nullable = false)
-    private String raça;
+    @Column(name="RAÇA", length = 100, nullable = false)
+    private String raca;
 
-    @Column(name="Sexo", length = 5, nullable = false)
+    @Column(name="SEXO", length = 5, nullable = false)
     private String sexo;
 
-    @Column(name="Número do microhip", length = 100)
+    @Column(name="NÚMERO_DO_MICROSHIP", length = 100)
     private int numeracaoMicroChip;
 
-    @Column(name = "Registro geral do Animal (RGA)", length = 100)
+    @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 100)
     private int registroGeralDoAnimal;
 
     
@@ -61,11 +60,11 @@ public class CadastroDeAnimal {
         this.nome = nome;
     }
 
-    public LocalDate getDataDeNascimento() {
+    public java.sql.Date getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(LocalDate dataDeNascimento) {
+    public void setDataDeNascimento(java.sql.Date dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 
@@ -85,12 +84,12 @@ public class CadastroDeAnimal {
         this.corDaPelagem = corDaPelagem;
     }
 
-    public String getRaça() {
-        return raça;
+    public String getRaca() {
+        return raca;
     }
 
-    public void setRaça(String raça) {
-        this.raça = raça;
+    public void setRaca(String raca) {
+        this.raca = raca;
     }
 
     public String getSexo() {
@@ -116,7 +115,5 @@ public class CadastroDeAnimal {
     public void setRegistroGeralDoAnimal(int registroGeralDoAnimal) {
         this.registroGeralDoAnimal = registroGeralDoAnimal;
     }
-
-
 
 }
