@@ -1,5 +1,6 @@
 package com.carteiradevacinacao.controllers;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class CadastroAnimalController {
   @Autowired
   private CadastroAnimalRepo repo;
 
+//Lista dos cadastros de animais realizados
   @GetMapping("/cadastro")
   public String index(Model model) {
     List<Animal>animais = (List<Animal>) repo.findAll();
@@ -24,11 +26,13 @@ public class CadastroAnimalController {
     return "cadastro/index";
   }
 
+//Novo cadastro
   @GetMapping("/cadastro/novo")
   public String novo() {
     return "cadastro/novo";
   }
 
+//Salvando a criação do cadastro no banco
   @PostMapping("/cadastro/criar")
   public String criar(Animal animal) {
     repo.save(animal);
@@ -37,7 +41,7 @@ public class CadastroAnimalController {
 
 
   @GetMapping("/cadastro/{id}")
-  public String busca(@PathVariable int id, Model model) {
+  public String busca(@PathVariable long id, Model model) {
     Optional<Animal> cadastro = repo.findById(id);
     try{
       model.addAttribute("animal", cadastro.get());
@@ -48,20 +52,20 @@ public class CadastroAnimalController {
   }
 
   @PostMapping("/cadastro/{id}/atualizar")
-  public String atualizar(@PathVariable int id, Animal animal) {
-    if(!repo.existsById(id)){ 
+  public String atualizar(@PathVariable long id, Animal animal) {
+    if(!repo.existsById((long) id)){ 
     return "redirect:/cadastro";
   }
     repo.save(animal);
     return "redirect:/cadastro";
   }
 
-
-
+  //GET pode ser usado quando se trata de html e fosse uma api usar o delete
   @GetMapping("/cadastro/{id}/excluir")
-  public String excluir(@PathVariable int id) {
-    repo.deleteById(id);
+  public String excluir(@PathVariable long id) {
+   repo.deleteById(id);
     return "redirect:/cadastro";
   }
+
 
 }
