@@ -1,0 +1,144 @@
+:root{
+    --color-white:#fff;
+    --color-magenta: #cb6ce6;
+    --color-black: #000;
+    --color-gray: #f3f3f3;
+    --color-antiquewhite: 	#faebd7;
+}
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-white);
+}
+
+.img_logo_pvc{
+    width: 100px;
+}
+
+.img_icon_home{
+    width: 70px;
+}
+
+.img_icon_cadastrar{
+    width: 70px;
+}
+
+.header,
+.navigation_header{
+    display: flex;
+    flex-direction:row;
+    align-items: center;    
+}
+.header{
+    background-color: var(--color-magenta);
+    justify-content: space-between;
+    padding: 0 3%;
+    width: 100%;
+}
+.navigation_header{
+    gap: 2px;
+}
+
+.btn_icon_header{
+    
+    background-color: transparent;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    display:none;
+}
+@media screen and (max-width:768px) {
+    .btn_icon_header{
+        display:block;
+    }
+    .navigation_header{
+        position:absolute;
+        flex-direction:column;
+        top: 0;
+        background-color: var(--color-magenta);
+        height: 100%;
+        width: 35vw;
+        padding: 1em;
+        animation-duration: 1s;
+        margin-left: -100vw;
+    }
+}
+@keyframes showSidebar{
+    from{
+        margin-left: -100vw;
+    }
+    to{
+        margin-left: -10vw;
+    }
+}
+
+.content-table{
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px 200px;
+    font-size: 20px;
+    width: 70%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr{
+    background-color: var(--color-magenta);
+    color: var(--color-white);
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+    position:relative;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid var(--color-magenta);
+}
+
+
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid var(--color-magenta);
+}
+
+.button_alterar{
+    width: 20px;
+}
+
+.button_excluir{
+    width: 30px;
+}
+
+@media all and (max-width:768px){
+    .content-table tbody tr td{
+        display: block;
+        text-align: right;
+    }
+    .content-table tbody tr td:before{
+        content: attr(data-title);
+        position: absolute;
+        left: 10px;
+        display: block;
+    }
+    .content-table{
+        border:none;
+        margin: auto;
+    }
+    .content-table thead{
+        display: none;
+    }
+    .content-table tbody tr{
+        margin-bottom: 10px;
+        display: block;
+        border: 1px solid var(--color-magenta);
+    }
+} 
