@@ -7,7 +7,7 @@
         <title> Pet Vac Care</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body class="content">
         <div class="header" id="header">
@@ -17,7 +17,7 @@
             </svg>
            </button>
             <div class="logo_header">
-                <img src="/logo_pvc.png" class="img_logo_pvc" alt="Logo Pet Vac Care">
+                <img src="img/logo_pvc.png" class="img_logo_pvc" alt="Logo Pet Vac Care">
             </div>
             <div class="navigation_header" id="navigation_header">
                 <button onclick="toggleSidebar()" class="btn_icon_header">
@@ -25,8 +25,8 @@
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                     </svg>
                 </button>
-                <a href="/"><img src="/icon_home.png" class="img_icon_home" alt="Home"></a>
-                <a href="#"><img src="/icon_cadastrar.png" class="/img_icon_cadastrar" alt="Cadastrar Carteira de Vacinação"></a>
+                <a href="/"><img src="img/icon_home.png" class="img_icon_home" alt="Home"></a>
+                <a href="#"><img src="img/icon_cadastrar.png" class="/img_icon_cadastrar" alt="Cadastrar Carteira de Vacinação"></a>
             </div>
         </div>
         
@@ -47,8 +47,8 @@
                         <td th:text="${animal.nome}"></td>
                         <td th:text="${animal.especie}"></td>
                         <td th:text="${animal.dataDeNascimento}"></td>
-                        <td data-title="Ação"><a th:href="@{'/cadastro/' + ${animal.id}}"><img src="/button_alterar.png" class="button_alterar" alt="Alterar Cadastro"></a> 
-                            <a a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/cadastro/{id}(id=${animal.id})} + '/excluir\' } '"><img src="/button_excluir.png" class="button_excluir" alt="Excluir cadastro"></a></td>
+                        <td data-title="Ação"><a th:href="@{'/cadastro/' + ${animal.id}}"><img src="img/icon_alterar.png" class="button_alterar" alt="Alterar Cadastro"></a> 
+                            <a a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/cadastro/{id}(id=${animal.id})} + '/excluir\' } '"><img src="img/icon_excluir.png" class="button_excluir" alt="Excluir cadastro"></a></td>
                     </tr>
                    
                 </tbody>
