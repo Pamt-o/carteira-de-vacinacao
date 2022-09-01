@@ -17,7 +17,7 @@
             </svg>
            </button>
             <div class="logo_header">
-                <img src="logo_pvc.png" class="img_logo_pvc" alt="Logo Pet Vac Care">
+                <img src="/logo_pvc.png" class="img_logo_pvc" alt="Logo Pet Vac Care">
             </div>
             <div class="navigation_header" id="navigation_header">
                 <button onclick="toggleSidebar()" class="btn_icon_header">
@@ -47,8 +47,8 @@
                         <td th:text="${animal.nome}"></td>
                         <td th:text="${animal.especie}"></td>
                         <td th:text="${animal.dataDeNascimento}"></td>
-                        <td data-title="Ação"><a th:href="@{'/cadastro/' + ${animal.id}}"><img src="button_alterar.png" class="button_alterar" alt="Alterar Cadastro"></a> 
-                            <a a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/cadastro/{id}(id=${animal.id})} + '/excluir\' } '"><img src="button_excluir.png" class="button_excluir" alt="Excluir cadastro"></a></td>
+                        <td data-title="Ação"><a th:href="@{'/cadastro/' + ${animal.id}}"><img src="/button_alterar.png" class="button_alterar" alt="Alterar Cadastro"></a> 
+                            <a a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/cadastro/{id}(id=${animal.id})} + '/excluir\' } '"><img src="/button_excluir.png" class="button_excluir" alt="Excluir cadastro"></a></td>
                     </tr>
                    
                 </tbody>
