@@ -15,57 +15,58 @@ import com.carteiradevacinacao.repository.CadastroAnimalRepo;
 @Controller
 public class CadastroAnimalController {
 
-  @Autowired
-  private CadastroAnimalRepo repo;
+    @Autowired
+    private CadastroAnimalRepo repo;
 
-//Lista dos cadastros de animais realizados
-  @GetMapping("/cadastro")
-  public String index(Model model) {
-    List<Animal>animais = (List<Animal>) repo.findAll();
-    model.addAttribute("animais", animais);
-    return "cadastro/index";
-  }
-
-//Novo cadastro
-  @GetMapping("/cadastro/novo")
-  public String novo() {
-    return "cadastro/novo";
-  }
-
-//Salvando a criação do cadastro no banco
-  @PostMapping("/cadastro/criar")
-  public String criar(Animal animal) {
-    repo.save(animal);
-    return "redirect:/cadastro";
-  }
-
-
-  @GetMapping("/cadastro/{id}")
-  public String busca(@PathVariable long id, Model model) {
-    Optional<Animal> cadastro = repo.findById(id);
-    try{
-      model.addAttribute("animal", cadastro.get());
+    //Lista dos cadastros de animais realizados
+    @GetMapping("/animal")
+    public String index(Model model) {
+        List<Animal> animais = (List<Animal>) repo.findAll();
+        model.addAttribute("animais", animais);
+        return "animal/index";
     }
-    catch(Exception err){ return "redirect:/cadastro";}
-    
-    return "/cadastro/editar";
-  }
 
-  @PostMapping("/cadastro/{id}/atualizar")
-  public String atualizar(@PathVariable long id, Animal animal) {
-    if(!repo.existsById((long) id)){ 
-    return "redirect:/cadastro";
-  }
-    repo.save(animal);
-    return "redirect:/cadastro";
-  }
+    //Novo cadastro
+    @GetMapping("/animal/novo")
+    public String novo() {
+        return "animal/novo";
+    }
 
-  //GET pode ser usado quando se trata de html e fosse uma api usar o delete
-  @GetMapping("/cadastro/{id}/excluir")
-  public String excluir(@PathVariable long id) {
-   repo.deleteById(id);
-    return "redirect:/cadastro";
-  }
+    //Salvando a criação do cadastro no banco
+    @PostMapping("/animal/criar")
+    public String criar(Animal animal) {
+        repo.save(animal);
+        return "redirect:/animal";
+    }
+
+
+    @GetMapping("/animal/{id}")
+    public String busca(@PathVariable long id, Model model) {
+        Optional<Animal> animal = repo.findById(id);
+        try {
+            model.addAttribute("animal", animal.get());
+        } catch (Exception err) {
+            return "redirect:/animal";
+        }
+
+        return "/animal/editar";
+    }
+
+    @PostMapping("/animal/{id}/atualizar")
+    public String atualizar(@PathVariable long id, Animal animal) {
+        if (!repo.existsById((long) id)) {
+            return "redirect:/animal";
+        }
+        repo.save(animal);
+        return "redirect:/animal";
+    }
+
+    //GET pode ser usado quando se trata de html e fosse uma api usar o delete
+    @GetMapping("/animal/{id}/excluir")
+    public String excluir(@PathVariable long id) {
+        repo.deleteById(id);
+        return "redirect:/animal";
+    }
 
 
 }
