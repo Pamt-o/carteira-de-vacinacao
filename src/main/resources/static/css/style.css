@@ -1,9 +1,6 @@
 :root{
-    --color-white:#fff;
-    --color-magenta: #cb6ce6;
-    --color-black: #000;
-    --color-gray: #f3f3f3;
-    --color-antiquewhite: 	#faebd7;
+    --bs-body-bg: #fff;
+    --bs-body-color:  #cb6ce6;
 }
 *{
     margin:0;
@@ -12,7 +9,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--color-white);
+    background-color: var(--bs-body-bg);
 }
 
 .img_logo_pvc{
@@ -34,9 +31,9 @@ body{
     align-items: center;    
 }
 .header{
-    background-color: var(--color-magenta);
+    background-color: var(--bs-body-color);
     justify-content: space-between;
-    padding: 0 3%;
+    padding: 0 5%;
     width: 100%;
 }
 .navigation_header{
@@ -47,7 +44,7 @@ body{
     
     background-color: transparent;
     border: none;
-    color: var(--color-white);
+    color: var(--bs-body-bg);
     cursor: pointer;
     display:none;
 }
@@ -59,7 +56,7 @@ body{
         position:absolute;
         flex-direction:column;
         top: 0;
-        background-color: var(--color-magenta);
+        background-color: var(--bs-body-color);
         height: 100%;
         width: 35vw;
         padding: 1em;
@@ -88,8 +85,8 @@ body{
 }
 
 .content-table thead tr{
-    background-color: var(--color-magenta);
-    color: var(--color-white);
+    background-color: var(--bs-body-color);
+    color: var(--bs-body-bg);
     text-align: left;
     font-weight: bold;
 }
@@ -101,13 +98,13 @@ body{
 }
 
 .content-table tbody tr{
-    border-bottom: 1px solid var(--color-magenta);
+    border-bottom: 1px solid var(--bs-body-color);
 }
 
 
 
 .content-table tbody tr:last-of-type{
-    border-bottom: 2px solid var(--color-magenta);
+    border-bottom: 2px solid var(--bs-body-color);
 }
 
 .button_alterar{
@@ -139,6 +136,6 @@ body{
     .content-table tbody tr{
         margin-bottom: 10px;
         display: block;
-        border: 1px solid var(--color-magenta);
+        border: 1px solid var(--bs-body-color);
     }
 } 
