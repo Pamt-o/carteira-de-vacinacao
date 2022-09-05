@@ -53,7 +53,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: --bs-font-sans-serif;
+  --bs-font-sans-serif: Arial, Helvetica  ;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -7328,7 +7328,7 @@ textarea.form-control-lg {
 }
 
 .mt-2 {
-  margin-top: 0.5rem !important;
+  margin-top: 2.5rem !important;
 }
 
 .mt-3 {
@@ -7336,7 +7336,7 @@ textarea.form-control-lg {
 }
 
 .mt-4 {
-  margin-top: 1.5rem !important;
+  margin-top: 3.5rem !important;
 }
 
 .mt-5 {
@@ -7600,7 +7600,7 @@ textarea.form-control-lg {
 }
 
 .ps-3 {
-  padding-left: 1rem !important;
+  padding-left: 2rem !important;
 }
 
 .ps-4 {
@@ -11424,7 +11424,7 @@ body {
 
 .sb-topnav {
   padding-left: 0;
-  height: 56px;
+  height: 80px;
   z-index: 1039;
 }
 .sb-topnav .navbar-brand {
@@ -11452,7 +11452,7 @@ body {
   flex-wrap: nowrap;
 }
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
-  padding: 1.75rem 1rem 0.75rem;
+  padding: 2.75rem 1rem 0.75rem;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
