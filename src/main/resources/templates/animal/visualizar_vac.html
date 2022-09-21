@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Pet Vac Care</title>
         <link rel="stylesheet" href="/lib/bootstrap-5.1.3/css/bootstrap.min.css">        
-        <link rel="stylesheet" href="css/cartvac.css">
+        <link rel="stylesheet" href="css/visualizar_vac.css">
     </head>
     <body class="content">
         <div class="header" id="header">
@@ -25,58 +25,48 @@
                     </svg>
                 </button>
                 <a href="/"><img src="img/icon_home.png" class="img_icon_home" alt="Home"></a>
-                
-            </div>
+            </div>    
         </div>
-        
-        <div class="form">
-            <form action="#">
-                <div class="form-header">
-                    <div class="title">
-                        <h1>Cadastro de Vacina</h1>
-                    </div>
-                 </div>
-                 <div class="input-group">
-                    <div class="input-box">
-                        <label for="vacina">Vacina</label>
-                        <input id="vacina" type="text" name="vacina" placeholder="Digite nome da Vacina" required>
-                    </div>
-
-                    <div class="input-box">
-                        <label for="marca">Marca</label>
-                        <input id="marca" type="text" name="marca" placeholder="Digite fabricante da Vacina" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="vencimento">Vencimento do Lote</label>
-                        <input id="vencimento" type="date" name="vencimento" required>
-                    </div>
-
-                    <div class="input-box">
-                        <label for="data">Aplicada em</label>
-                        <input id="data" type="date" name="data" required>
-                    </div>
-
-                    <div class="input-box">
-                        <label for="revacinacao">Próxima dose em</label>
-                        <input id="revacinacao" type="date" name="revacinacao">
-                    </div>
-
-                    <div class="input-box">
-                        <label for="veterinario">Veterinário Responsável</label>
-                        <input id="veterinario" type="text" name="veterinario" placeholder="Digite nome do Veterinário responsável" required>
-                    </div>
-
-                </div>
-                <div class="cadastrar_btn">
-                    <button><a href="#">Cadastrar</a> </button>
-                </div>
-                <div class="cancelar_btn">
-                    <button><a href="#">Cancelar</a> </button>
-                </div>
-            </form>
-
-        
-         
+        <div class="table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Vacina</th>
+                        <th>Marca</th>
+                        <th>Vencimento do Lote</th>
+                        <th>Aplicada em</th>
+                        <th>Próxima dose em</th>
+                        <th>Veterinário Responsável</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                        <td>#</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
         </div>
         <script src="/js/animal/animal-novo.js"></script>
         <script src="/lib/jquery-3.6.1/js/jquery-3.6.1.min.js"></script>
@@ -113,5 +103,6 @@
         });
                     
     </script>
+   
        
 </html>
