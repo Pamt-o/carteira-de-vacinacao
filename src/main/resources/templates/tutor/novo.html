@@ -1,0 +1,61 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Cadastro do tutor</h3>
+            <a href="/tutor" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+            <div class="row">
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4" style="padding: 30px;">
+                <form method="post" id="form-cadastro" action="/tutor/criar" onsubmit="return confirm('Confirma ação')">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <label for="nome"> Nome:</label>
+                            <input class="form-control" type="text" name="nome" id="nome" placeholder="" required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="dataDeNascimento"> Data de nascimento:</label>
+                            <input class="form-control" type="date" id="dataDeNascimento" name="dataDeNascimento"
+                                required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email"> E-mail:</label>
+                            <input class="form-control" type="text" id="email" name="email"> <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="telefone"> Telefone:</label>
+                            <input class="form-control" type="number" id="telefone" name="telefone"> <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="sexo"> Sexo:</label> <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo" id="macho1" value="Macho">
+                                <label class="form-check-label" for="macho1"> Masculino </label>
+                            </div>
+    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo" id="femea2" value="Fêmea">
+                                <label class="form-check-label" for="femea2"> Feminino </label> 
+                            </div>
+                            <br>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>    
+        </div>
+
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

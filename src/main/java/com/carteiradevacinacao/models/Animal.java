@@ -1,21 +1,28 @@
 package com.carteiradevacinacao.models;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CADASTROS_ANIMAIS")
+@Table
 public class Animal{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="ID")
-    private long id;
+    private int id;
 
     @Column(name="NOME", length = 100, nullable = false)
     private String nome;
@@ -36,20 +43,32 @@ public class Animal{
     private String sexo;
 
 
-    @Column(name="NÚMERO_DO_MICROSHIP", length = 100, nullable = true)
+    @Column(name="NÚMERO_DO_MICROSHIP", length = 100)
     private int numeracaoMicroChip;
 
-    @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 100, nullable = true)
+    @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 100)
     private int registroGeralDoAnimal;
 
+    @OneToMany
+    @JoinColumn(name = "ID_ANIMAL")
+    private List<Veterinario> veterinarios;
+
+    @ManyToMany
+    @JoinTable(
+        name="AnimaisTutores", 
+        uniqueConstraints = @UniqueConstraint(columnNames = { "codigo_tutor", "id_animal" }),
+        joinColumns        = @JoinColumn(name = "id_animal"), 
+        inverseJoinColumns = @JoinColumn(name = "codigo_tutor")
+    )
+    private List<Tutor> tutores;
 
 
-    
-    public Long getId() {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -116,4 +135,20 @@ public class Animal{
     public void setRegistroGeralDoAnimal(int registroGeralDoAnimal) {
         this.registroGeralDoAnimal = registroGeralDoAnimal;
     }
+
+    public List<Tutor> getTutores() {
+        return tutores;
+    }
+
+    public void setTutores(List<Tutor> tutores) {
+        this.tutores = tutores;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal [corDaPelagem=" + corDaPelagem + ", dataDeNascimento=" + dataDeNascimento + ", especie="
+                + especie + ", id=" + id + ", nome=" + nome + ", numeracaoMicroChip=" + numeracaoMicroChip + ", raca="
+                + raca + ", registroGeralDoAnimal=" + registroGeralDoAnimal + ", sexo=" + sexo + "]";
+    }
+
 }
