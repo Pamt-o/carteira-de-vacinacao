@@ -24,7 +24,7 @@ public class Veterinario {
     @Column(name="DATA_DE_NASCIMENTO", nullable = false)
     private java.sql.Date dataDeNascimento;
 
-    @Column(name="EMAIL", length = 8, nullable = false)
+    @Column(name="EMAIL", length = 30, nullable = false)
     private String email;
 
     @Column(name="TELEFONE", length = 100)

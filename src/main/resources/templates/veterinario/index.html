@@ -1,0 +1,50 @@
+<div th:replace="compartilhado/top"></div>
+
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Lista dos Veterinários cadastrados</h3>
+            <div class="row">
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <a href="/veterinario/novo"><img src="/img/icon_cadastrar.png" class="btn" width="100"
+                            alt=""></a>
+                    <!-- <a href="/animal/novo" class="btn btn-primary" style="margin-right: 20px;">Novo</a> -->
+                    <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Novo</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Matrícula</th>
+                                    <th>Nome</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="veterinario : ${veterinarios}">
+                                    <td th:text="${veterinario.matricula}"></td>
+                                    <td th:text="${veterinario.nome}"></td>
+                                    <!-- <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Detalhes</a></td>
+                                    <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Carteira de vacina</a></td> -->
+                                    <td data-title="Ação"><a th:href="@{'/veterinario/' + ${veterinario.matricula}}"><img
+                                                src="img/button_alterar.png" class="button_alterar"
+                                                alt="Alterar Cadastro" width="30"></a>
+                                    <td><a href="#"
+                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/veterinario/{matricula}(matricula=${veterinario.matricula})} + '/excluir\' } '"
+                                            class="btn"> <input type=image src="/img/button_excluir.png" width="36">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </main>
+<!-- fim -->
+<div th:replace="compartilhado/baixo"></div>

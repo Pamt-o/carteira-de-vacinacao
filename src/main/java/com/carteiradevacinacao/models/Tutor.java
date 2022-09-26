@@ -46,6 +46,12 @@ public class Tutor {
     )
     private List<Animal> animais;
 
+    @Override
+    public String toString() {
+        return "Tutor [codigo=" + codigo + ", nome=" + nome + "]";
+    }
+
+
     public int getCodigo() {
         return codigo;
     }
@@ -102,9 +108,6 @@ public class Tutor {
         this.sexo = sexo;
     }
 
-    @Override
-    public String toString() {
-        return "Tutor [codigo=" + codigo + ", nome=" + nome + "]";
-    }
+
 }
 
