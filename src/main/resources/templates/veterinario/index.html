@@ -1,18 +1,17 @@
-<!-- Começo -->
 <div th:replace="compartilhado/top"></div>
 
 <!--conteudo-->
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h3 class="mt-4">Lista dos Pet's cadastrados</h3>
+            <h3 class="mt-4">Lista dos Veterinários cadastrados</h3>
             <div class="row">
             </div>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="/animal/novo"><img src="/img/icon_cadastrar.png" class="btn" width="100"
-                            alt="Cadastrar Carteira de Vacinação"></a>
+                    <a href="/veterinario/novo"><img src="/img/icon_cadastrar.png" class="btn" width="100"
+                            alt=""></a>
                     <!-- <a href="/animal/novo" class="btn btn-primary" style="margin-right: 20px;">Novo</a> -->
                     <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Novo</h6>
                 </div>
@@ -21,29 +20,22 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>Matrícula</th>
                                     <th>Nome</th>
-                                    <th>Espécie</th>
-                                    <th>Sexo</th>
-                                    <th>Data de nascimento</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="animal : ${animais}">
-                                    <td th:text="${animal.id}"></td>
-                                    <td th:text="${animal.nome}"></td>
-                                    <td th:text="${animal.especie}"></td>
-                                    <td th:text="${animal.sexo}"></td>
-                                    <td th:text="${animal.dataDeNascimento}"></td>
-                                    <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Detalhes</a></td>
-                                    <td> <a th:href="@{'/vacina'}">Carteira de vacina</a></td>
-                                    <td data-title="Ação"><a th:href="@{'/animal/' + ${animal.id}}"><img
+                                <tr th:each="veterinario : ${veterinarios}">
+                                    <td th:text="${veterinario.matricula}"></td>
+                                    <td th:text="${veterinario.nome}"></td>
+                                    <td> <a th:href="@{'/detalhesVeterinario/' + ${veterinario.matricula}}">Detalhes</a></td>
+                                    <td data-title="Ação"><a th:href="@{'/veterinario/' + ${veterinario.matricula}}"><img
                                                 src="img/button_alterar.png" class="button_alterar"
                                                 alt="Alterar Cadastro" width="30"></a>
                                     <td><a href="#"
-                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/animal/{id}(id=${animal.id})} + '/excluir\' } '"
+                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/veterinario/{matricula}(matricula=${veterinario.matricula})} + '/excluir\' } '"
                                             class="btn"> <input type=image src="/img/button_excluir.png" width="36">
                                     </td>
                                 </tr>

@@ -1,0 +1,50 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-2">Editar cadastro do Tutor</h3>
+            <a href="/tutor" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-2" style="padding: 30px;">
+
+                <form method="post" th:action="@{'/tutor/' + ${tutor.codigo} + '/atualizar'}">
+                    <div class="row">
+                        <div class="col-md-4">
+                        <label for="nome"> Nome:</label>
+                        <input class="form-control" th:value="${tutor.nome}" type="text" name="nome" id="nome"
+                            placeholder="" required>
+                        <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="dataDeNascimento"> Data de nascimento:</label>
+                        <input class="form-control" th:value="${tutor.dataDeNascimento}" type="date"
+                            id="dataDeNascimento" name="dataDeNascimento" required> <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="email"> E-mail:</label>
+                        <input class="form-control" th:value="${tutor.email}" type="text"
+                            id="email" name="email" required> <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="telefone"> E-mail:</label>
+                        <input class="form-control" th:value="${tutor.telefone}" type="number"
+                            id="telefone" name="telefone" required> <br>
+                    </div>
+
+
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+
+
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

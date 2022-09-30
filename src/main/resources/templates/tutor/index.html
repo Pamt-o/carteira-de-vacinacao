@@ -5,13 +5,13 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h3 class="mt-4">Lista dos Pet's cadastrados</h3>
+            <h3 class="mt-4">Lista dos tutores cadastrados</h3>
             <div class="row">
             </div>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="/animal/novo"><img src="/img/icon_cadastrar.png" class="btn" width="100"
+                    <a href="/tutor/novo"><img src="/img/icon_cadastrar.png" class="btn" width="100"
                             alt="Cadastrar Carteira de Vacinação"></a>
                     <!-- <a href="/animal/novo" class="btn btn-primary" style="margin-right: 20px;">Novo</a> -->
                     <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Novo</h6>
@@ -21,29 +21,28 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>Código</th>
                                     <th>Nome</th>
-                                    <th>Espécie</th>
-                                    <th>Sexo</th>
+                                    <th>Telefone</th>
+                                    <th>E-mail</th>
                                     <th>Data de nascimento</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr th:each="animal : ${animais}">
-                                    <td th:text="${animal.id}"></td>
-                                    <td th:text="${animal.nome}"></td>
-                                    <td th:text="${animal.especie}"></td>
-                                    <td th:text="${animal.sexo}"></td>
-                                    <td th:text="${animal.dataDeNascimento}"></td>
-                                    <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Detalhes</a></td>
-                                    <td> <a th:href="@{'/vacina'}">Carteira de vacina</a></td>
-                                    <td data-title="Ação"><a th:href="@{'/animal/' + ${animal.id}}"><img
+                            <tbody> 
+                                <tr th:each="tutor : ${tutores}">
+                                    <td th:text="${tutor.codigo}"></td>
+                                    <td th:text="${tutor.nome}"></td>
+                                    <td th:text="${tutor.telefone}"></td>
+                                    <td th:text="${tutor.email}"></td>
+                                    <td th:text="${tutor.dataDeNascimento}"></td>
+                                    <td> <a th:href="@{'/detalhesTutor/' + ${tutor.codigo}}">Detalhes</a></td>
+                                    <td data-title="Ação"><a th:href="@{'/tutor/' + ${tutor.codigo}}"><img
                                                 src="img/button_alterar.png" class="button_alterar"
                                                 alt="Alterar Cadastro" width="30"></a>
                                     <td><a href="#"
-                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/animal/{id}(id=${animal.id})} + '/excluir\' } '"
+                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/tutor/{codigo}(codigo=${tutor.codigo})} + '/excluir\' } '"
                                             class="btn"> <input type=image src="/img/button_excluir.png" width="36">
                                     </td>
                                 </tr>
