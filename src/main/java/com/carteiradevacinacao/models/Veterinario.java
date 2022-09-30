@@ -1,13 +1,19 @@
 package com.carteiradevacinacao.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+
 
 @Entity
 @Table
@@ -28,15 +34,28 @@ public class Veterinario {
     private String email;
 
     @Column(name="TELEFONE", length = 100)
-    private int telefone;
+    private long telefone;
 
     @Column(name="CRMV", length = 20)
     private int crmv;
 
-    @ManyToOne
-    @JoinColumn(name="ID_ANIMAL")
-    private Animal animal;
+    @ManyToMany
+    @JoinTable(
+        name="AnimaisVeterinarios", 
+        uniqueConstraints = @UniqueConstraint(columnNames = { "matricula_veterinario", "id_animal" }),
+        joinColumns        = @JoinColumn(name = "matricula_veterinario" ),
+        inverseJoinColumns = @JoinColumn(name = "id_animal")
+    )
+    private List<Animal> animais;
 
+
+    public List<Animal> getAnimais() {
+        return animais;
+    }
+
+    public void setAnimais(List<Animal> animais) {
+        this.animais = animais;
+    }
 
     public int getMatricula() {
         return matricula;
@@ -70,11 +89,11 @@ public class Veterinario {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
@@ -86,17 +105,11 @@ public class Veterinario {
         this.crmv = crmv;
     }
 
-    public Animal getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
-    }
+ 
 
     @Override
     public String toString() {
-        return "Veterinario [animal=" + animal.getNome() + ", matricula=" + matricula + ", nome=" + nome + "]";
+        return "Veterinario [ matricula=" + matricula + ", nome=" + nome + "]";
     }
     
 }

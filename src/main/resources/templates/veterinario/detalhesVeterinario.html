@@ -3,18 +3,17 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h3 class="mt-4">Detalhes do Tutor</h3>
-            <a href="/tutor" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+            <h3 class="mt-4">Detalhes do Veterionário</h3>
+            <a href="/veterinario" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
 
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
-                                <br><b>Nome: </b> <span th:text="${tutor.nome}"></span>
-                                <br><b>Data de nascimento: </b> <span th:text="${tutor.dataDeNascimento}"></span>
-                                <br><b>E-mail: </b> <span th:text="${tutor.email}"></span>
-                                <br><b>Telefone: </b> <span th:text="${tutor.telefone}"></span>
+                                <br><b>Nome: </b> <span th:text="${veterinario.nome}"></span>
+                                <br><b>E-mail: </b> <span th:text="${veterinario.email}"></span>
+                                <br><b>Telefone: </b> <span th:text="${veterinario.telefone}"></span>
                             </thead>
                         </table>
                     </div>
@@ -26,30 +25,26 @@
                             <tr>
                                 <th>Id Animal</th>
                                 <th>Animal</th>
-                                <th>Data de nascimento</th>
-                                <th>Especie</th>
-                                <th>Sexo</th>
                                 <th></th>
+
                             </tr>
                         </thead>
-                        <tr th:each="animal : ${tutor.animais}">
+                        <tr th:each="animal : ${veterinario.animais}">
                             <td th:text="${animal.id}"></td>
                             <td th:text="${animal.nome}"></td>
-                            <td th:text="${animal.dataDeNascimento}"></td>
-                            <td th:text="${animal.especie}"></td>
-                            <td th:text="${animal.sexo}"></td>
-                           
+                            
+
                         </tr>
                     </table>
                     <br>
-                    <form th:action="@{/associarAnimalTutor(codigotutor=${tutor.codigo})}" method="POST">
+                    <form th:action="@{/associarAnimalVeterinario(matriculavet=${veterinario.matricula})}" method="POST">
                         <label><b>Animais:</b></label>
                         <select name="id" required>
                             <option value="">Escolha o animal</option>
                             <option th:each="animal : ${animais}" th:value="${animal.id}" th:text="${animal.nome}">
                             </option>
                         </select>
-                        <input type="submit" class="btn btn-primary" value="Associar Animal"/>
+                        <input type="submit" class="btn btn-primary" value="Associar Animal" />
                     </form>
 
                 </div>
@@ -57,8 +52,8 @@
 
         </div>
 
-        
-
     </main>
-<!-- fim -->
-<div th:replace="compartilhado/baixo"></div>
+
+
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

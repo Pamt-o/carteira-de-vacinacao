@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.UniqueConstraint;
+
+
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,7 @@ public class Animal{
     @Column(name="NOME", length = 100, nullable = false)
     private String nome;
 
+    
     @Column(name="DATA_DE_NASCIMENTO", nullable = false)
     private java.sql.Date dataDeNascimento;
 
@@ -43,7 +46,7 @@ public class Animal{
     private String sexo;
 
 
-    @Column(name="NÚMERO_DO_MICROSHIP", length = 100)
+    @Column(name="NUMERO_DO_MICROSHIP", length = 100)
     private int numeracaoMicroChip;
 
     @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 100)
@@ -80,6 +83,7 @@ public class Animal{
         this.nome = nome;
     }
 
+    
     public java.sql.Date getDataDeNascimento() {
         return dataDeNascimento;
     }
@@ -150,5 +154,7 @@ public class Animal{
                 + especie + ", id=" + id + ", nome=" + nome + ", numeracaoMicroChip=" + numeracaoMicroChip + ", raca="
                 + raca + ", registroGeralDoAnimal=" + registroGeralDoAnimal + ", sexo=" + sexo + "]";
     }
+
+ 
 
 }

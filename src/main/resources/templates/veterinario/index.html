@@ -30,8 +30,7 @@
                                 <tr th:each="veterinario : ${veterinarios}">
                                     <td th:text="${veterinario.matricula}"></td>
                                     <td th:text="${veterinario.nome}"></td>
-                                    <!-- <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Detalhes</a></td>
-                                    <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Carteira de vacina</a></td> -->
+                                    <td> <a th:href="@{'/detalhesVeterinario/' + ${veterinario.matricula}}">Detalhes</a></td>
                                     <td data-title="Ação"><a th:href="@{'/veterinario/' + ${veterinario.matricula}}"><img
                                                 src="img/button_alterar.png" class="button_alterar"
                                                 alt="Alterar Cadastro" width="30"></a>

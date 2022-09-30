@@ -11,6 +11,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -25,6 +27,7 @@ public class Tutor {
     @Column(name="NOME", length = 100, nullable = false)
     private String nome;
 
+  
     @Column(name="DATA_DE_NASCIMENTO", nullable = false)
     private java.sql.Date dataDeNascimento;
 
@@ -32,7 +35,7 @@ public class Tutor {
     private String email;
 
     @Column(name="TELEFONE", length = 100)
-    private int telefone;
+    private long telefone;
 
     @Column(name="SEXO", length = 10, nullable = false)
     private String sexo;
@@ -84,11 +87,11 @@ public class Tutor {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 

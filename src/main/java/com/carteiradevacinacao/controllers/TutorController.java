@@ -77,6 +77,8 @@ public class TutorController {
         return "redirect:/tutor";
     }
 
+    
+
     @PostMapping("/associarAnimalTutor")
     public String associarAnimal(@ModelAttribute Animal animal, @RequestParam Integer codigotutor) {
         
@@ -102,7 +104,6 @@ public class TutorController {
 
         return mv;
     }
-
 
     // GET pode ser usado quando se trata de html e fosse uma api usar o delete
     @GetMapping("/tutor/{codigo}/excluir")
