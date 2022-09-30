@@ -2,6 +2,7 @@ package com.carteiradevacinacao.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,6 @@ public class Tutor {
     @Column(name="NOME", length = 100, nullable = false)
     private String nome;
 
-  
     @Column(name="DATA_DE_NASCIMENTO", nullable = false)
     private java.sql.Date dataDeNascimento;
 
@@ -40,7 +40,7 @@ public class Tutor {
     @Column(name="SEXO", length = 10, nullable = false)
     private String sexo;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
         name="AnimaisTutores", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "codigo_tutor", "id_animal" }),
@@ -53,7 +53,6 @@ public class Tutor {
     public String toString() {
         return "Tutor [codigo=" + codigo + ", nome=" + nome + "]";
     }
-
 
     public int getCodigo() {
         return codigo;
