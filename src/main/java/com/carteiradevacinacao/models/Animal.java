@@ -116,4 +116,12 @@ public class Animal{
     public void setRegistroGeralDoAnimal(int registroGeralDoAnimal) {
         this.registroGeralDoAnimal = registroGeralDoAnimal;
     }
+
+    public Object getEmail() {
+        return null;
+    }
+
+    public Object getSenha() {
+        return null;
+    }
 }

@@ -7,7 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.carteiradevacinacao.models.Animal;
 import com.carteiradevacinacao.repository.CadastroAnimalRepo;
@@ -22,7 +24,7 @@ public class CadastroAnimalController {
     @GetMapping("/animal")
     public String index(Model model) {
         List<Animal> animais = (List<Animal>) repo.findAll();
-        model.addAttribute("animais", animais);
+        model.addAttribute("animal", animais);
         return "animal/index";
     }
 
@@ -45,8 +47,7 @@ public class CadastroAnimalController {
         Optional<Animal> animal = repo.findById(id);
         try {
             model.addAttribute("animal", animal.get());
-        } catch (Exception err) {
-            return "redirect:/animal";
+        } catch (Exception err) { return "redirect:/animal";
         }
 
         return "/animal/editar";
@@ -66,6 +67,10 @@ public class CadastroAnimalController {
     public String excluir(@PathVariable long id) {
         repo.deleteById(id);
         return "redirect:/animal";
+    }
+
+    public Animal Login(Object email, Object senha) {
+        return null;
     }
 
 
