@@ -50,14 +50,6 @@ public class Veterinario {
     private List<Animal> animais;
 
 
-    public List<Animal> getAnimais() {
-        return animais;
-    }
-
-    public void setAnimais(List<Animal> animais) {
-        this.animais = animais;
-    }
-
     public int getMatricula() {
         return matricula;
     }
@@ -106,7 +98,14 @@ public class Veterinario {
         this.crmv = crmv;
     }
 
- 
+    public List<Animal> getAnimais() {
+        return animais;
+    }
+
+    public void setAnimais(List<Animal> animais) {
+        this.animais = animais;
+    }
+
 
     @Override
     public String toString() {
