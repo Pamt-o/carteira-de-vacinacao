@@ -2,6 +2,7 @@ package com.carteiradevacinacao.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Vacina {
     @Column(name="DATA_APLICACAO", nullable = false)
     private java.sql.Date dataAplicacao;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<Veterinario> veterinarios;
 
     public int getIdVacina() {
