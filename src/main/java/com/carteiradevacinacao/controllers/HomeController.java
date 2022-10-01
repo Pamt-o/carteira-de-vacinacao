@@ -17,5 +17,11 @@ public class HomeController {
     model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
     return "home/index";
     }
+  
+   @GetMapping("/")
+    public String index(Model model){
+        model.addAttribute("nome", "Pâmela");
+        return "home/index";
+    }
     
 }
