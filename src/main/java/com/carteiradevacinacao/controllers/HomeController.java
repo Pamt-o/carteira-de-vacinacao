@@ -1,13 +1,18 @@
 package com.carteiradevacinacao.controllers;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class HomeController {
-
-    @GetMapping("/")
+  
+   @GetMapping("/")
     public String index(Model model){
         model.addAttribute("nome", "Pâmela");
         return "home/index";

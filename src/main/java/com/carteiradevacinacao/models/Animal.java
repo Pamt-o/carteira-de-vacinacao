@@ -3,6 +3,7 @@ package com.carteiradevacinacao.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,18 +46,17 @@ public class Animal{
     @Column(name="SEXO", length = 5, nullable = false)
     private String sexo;
 
-
     @Column(name="NUMERO_DO_MICROSHIP", length = 100)
     private int numeracaoMicroChip;
 
     @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 100)
     private int registroGeralDoAnimal;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "ID_ANIMAL")
     private List<Veterinario> veterinarios;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
         name="AnimaisTutores", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "codigo_tutor", "id_animal" }),
