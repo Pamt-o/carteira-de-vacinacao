@@ -1,8 +1,5 @@
 package com.carteiradevacinacao.controllers;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
