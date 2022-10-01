@@ -25,6 +25,6 @@ public class VeterinarioService {
     public Veterinario getVeterinarioById(int matricula) {
         return repository.findById(matricula).get();
     }
-    
+
     
 }

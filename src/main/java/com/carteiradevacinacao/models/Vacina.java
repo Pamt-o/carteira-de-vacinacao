@@ -1,14 +1,12 @@
 package com.carteiradevacinacao.models;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class Vacina {
@@ -29,9 +27,7 @@ public class Vacina {
 
     @Column(name="DATA_APLICACAO", nullable = false)
     private java.sql.Date dataAplicacao;
-
-    @OneToMany(cascade = CascadeType.REMOVE)
-    private List<Veterinario> veterinarios;
+    
 
     public int getIdVacina() {
         return idVacina;
@@ -73,12 +69,6 @@ public class Vacina {
         this.dataAplicacao = dataAplicacao;
     }
 
-    public List<Veterinario> getVeterinarios() {
-        return veterinarios;
-    }
 
-    public void setVeterinarios(List<Veterinario> veterinarios) {
-        this.veterinarios = veterinarios;
-    }
 
 }

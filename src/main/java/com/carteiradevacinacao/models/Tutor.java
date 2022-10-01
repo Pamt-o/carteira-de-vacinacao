@@ -41,13 +41,13 @@ public class Tutor {
     @Column(name="SEXO", length = 10, nullable = false)
     private String sexo;
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany(cascade = {CascadeType.REMOVE})
     @JoinTable(
         name="AnimaisTutores", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "codigo_tutor", "id_animal" }),
         joinColumns        = @JoinColumn(name = "codigo_tutor" ),
         inverseJoinColumns = @JoinColumn(name = "id_animal")
-    )
+    ) 
     private List<Animal> animais;
 
     @Override

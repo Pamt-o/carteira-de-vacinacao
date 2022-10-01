@@ -30,8 +30,6 @@ public class VeterinarioController {
 
     @Autowired
     private AnimalService animalService;
-    
-    
 
     // Lista dos cadastros
     @GetMapping("/veterinario")
@@ -87,7 +85,6 @@ public class VeterinarioController {
 
         return "redirect:/detalhesVeterinario/" + matriculavet;
     }
-
     
     @GetMapping("/detalhesVeterinario/{matricula}")
     public ModelAndView getVeterinarioDetalhes(@PathVariable(name = "matricula") Integer matricula) {
@@ -102,7 +99,6 @@ public class VeterinarioController {
         return mv;
     }
 
-    
     // GET pode ser usado quando se trata de html e fosse uma api usar o delete
     @GetMapping("/veterinario/{matricula}/excluir")
     public String excluir(@PathVariable int matricula) {
@@ -111,6 +107,8 @@ public class VeterinarioController {
     }
 
 
+   
 
+    
 
 }
