@@ -13,46 +13,75 @@
                 <form method="post" th:action="@{'/animal/' + ${animal.id} + '/atualizar'}">
                     <div class="row">
                         <div class="col-md-4">
-                        <label for="nome"> Nome:</label>
-                        <input class="form-control" th:value="${animal.nome}" type="text" name="nome" id="nome"
-                            placeholder="" required>
-                        <br>
+                            <label for="nome"> Nome:</label>
+                            <input class="form-control" th:value="${animal.nome}" type="text" name="nome" id="nome"
+                                placeholder="" required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="dataDeNascimento"> Data de nascimento:</label>
+                            <input class="form-control" th:value="${animal.dataDeNascimento}" type="date"
+                                id="dataDeNascimento" name="dataDeNascimento" required> <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="raca"> Raça:</label>
+                            <input class="form-control" th:value="${animal.raca}" type="text" id="raca" name="raca">
+                            <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="pelo"> Cor da pelagem:</label>
+                            <input class="form-control" th:value="${animal.corDaPelagem}" type="text" id="corDaPelagem"
+                                name="corDaPelagem"> <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="numeracaoMicroChip"> Número do microchip:</label>
+                            <input class="form-control" th:value="${animal.numeracaoMicroChip}" type="text"
+                                id="numeracaoMicroChip" name="numeracaoMicroChip"> <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="rga"> Número do RGA:</label>
+                            <input class="form-control" th:value="${animal.registroGeralDoAnimal}" type="text"
+                                id="registroGeralDoAnimal" name="registroGeralDoAnimal"> <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="especie"> Espécie:</label> <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="especie" id="especie"
+                                    value="Cachorro">
+                                <label class="form-check-label" for="cachorro1"> Cachorro </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="especie" id="especie" value="Gato">
+                                <label class="form-check-label" for="gato2"> Gato </label>
+                            </div>
+
+                            <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="sexo"> Sexo:</label> <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo" id="macho" value="Macho">
+                                <label class="form-check-label" for="macho1"> Macho </label> <br>
+
+                                <input class="form-check-input" type="radio" name="sexo" id="femea" value="Fêmea">
+                                <label class="form-check-label" for="femea2"> Fêmea </label>
+                            </div>
+
+                        </div>
+
+
                     </div>
-
-                    <div class="col-md-4">
-                        <label for="dataDeNascimento"> Data de nascimento:</label>
-                        <input class="form-control" th:value="${animal.dataDeNascimento}" type="date"
-                            id="dataDeNascimento" name="dataDeNascimento" required> <br>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="raca"> Raça:</label>
-                        <input class="form-control" th:value="${animal.raca}" type="text" id="raca" name="raca"> <br>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="pelo"> Cor da pelagem:</label>
-                        <input class="form-control" th:value="${animal.corDaPelagem}" type="text" id="corDaPelagem"
-                            name="corDaPelagem"> <br>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="numeracaoMicroChip"> Número do microchip:</label>
-                        <input class="form-control" th:value="${animal.numeracaoMicroChip}" type="text"
-                            id="numeracaoMicroChip" name="numeracaoMicroChip"> <br>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="rga"> Número do RGA:</label>
-                        <input class="form-control" th:value="${animal.registroGeralDoAnimal}" type="text"
-                            id="registroGeralDoAnimal" name="registroGeralDoAnimal"> <br>
-                    </div>
-
-
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
 
 
 

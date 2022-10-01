@@ -1,6 +1,5 @@
 package com.carteiradevacinacao.controllers;
 
-
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

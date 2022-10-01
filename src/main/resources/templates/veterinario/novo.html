@@ -12,8 +12,8 @@
             <div class="card shadow mb-4" style="padding: 30px;">
                 <form method="post" id="form-cadastro" action="/veterinario/criar" onsubmit="return confirm('Confirma ação')">
                     <div class="row">
-                        <div class="col-md-6">
 
+                        <div class="col-md-6">
                             <label for="nome"> Nome:</label>
                             <input class="form-control" type="text" name="nome" id="nome" placeholder="" required>
                             <br>
@@ -21,35 +21,34 @@
 
                         <div class="col-md-6">
                             <label for="dataDeNascimento"> Data de nascimento:</label>
-                            <input class="form-control" type="date" id="dataDeNascimento" name="dataDeNascimento"
-                                required>
+                            <input class="form-control" type="date" id="dataDeNascimento" name="dataDeNascimento" required>
                             <br>
                         </div>
 
                         <div class="col-md-6">
                             <label for="email"> E-mail:</label>
-                            <input class="form-control" type="text" id="email" name="email"> <br>
+                            <input class="form-control" type="text" id="email" name="email"required> <br>
                         </div>
 
                         <div class="col-md-6">
                             <label for="telefone"> Telefone:</label>
-                            <input class="form-control" type="number" id="telefone" name="telefone"> <br>
+                            <input class="form-control" type="number" id="telefone" name="telefone"required> <br>
                         </div>
 
                         <div class="col-md-6">
                             <label for="crmv"> CRMV:</label>
-                            <input class="form-control" type="number" id="crmv" name="crmv"> <br>
+                            <input class="form-control" type="number" id="crmv" name="crmv"required> <br>
                         </div>
 
                         <div class="col-md-6">
                             <label for="sexo"> Sexo:</label> <br>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sexo" id="macho1" value="Macho">
+                                <input class="form-check-input" type="radio" name="sexo" id="macho1" value="Masculino">
                                 <label class="form-check-label" for="macho1"> Masculino </label>
                             </div>
     
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sexo" id="femea2" value="Fêmea">
+                                <input class="form-check-input" type="radio" name="sexo" id="femea2" value="Feminino">
                                 <label class="form-check-label" for="femea2"> Feminino </label> 
                             </div>
                             <br>
