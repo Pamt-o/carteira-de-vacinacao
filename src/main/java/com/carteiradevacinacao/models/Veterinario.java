@@ -2,7 +2,6 @@ package com.carteiradevacinacao.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +30,10 @@ public class Veterinario {
     @Column(name="DATA_DE_NASCIMENTO", nullable = false)
     private java.sql.Date dataDeNascimento;
 
+    @Column(name="SEXO", length = 20, nullable = false)
+    private String sexo;
+
+    
     @Column(name="EMAIL", length = 30, nullable = false)
     private String email;
 
@@ -40,7 +43,7 @@ public class Veterinario {
     @Column(name="CRMV", length = 20)
     private int crmv;
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany
     @JoinTable(
         name="AnimaisVeterinarios", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "matricula_veterinario", "id_animal" }),
@@ -80,6 +83,14 @@ public class Veterinario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public long getTelefone() {

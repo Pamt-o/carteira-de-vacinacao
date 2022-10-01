@@ -12,41 +12,57 @@
 
                 <form method="post" th:action="@{'/veterinario' + ${veterinario.matricula} + '/atualizar'}">
                     <div class="row">
+                        <div class="col-md-6">
+                            <label for="nome"> Nome:</label>
+                            <input class="form-control" th:value="${veterinario.nome}" type="text" name="nome" id="nome"
+                                placeholder="" required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="dataDeNascimento"> Data de nascimento:</label>
+                            <input class="form-control" th:value="${veterinario.dataDeNascimento}" type="date"
+                                id="dataDeNascimento" name="dataDeNascimento" required> <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email"> E-mail:</label>
+                            <input class="form-control" th:value="${veterinario.email}" type="text" id="email"
+                                name="email" required> <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="telefone"> Telefone:</label>
+                            <input class="form-control" th:value="${veterinario.telefone}" type="number" id="telefone"
+                                name="telefone" required> <br>
+                        </div>
+                        
+
                         <div class="col-md-4">
-                        <label for="nome"> Nome:</label>
-                        <input class="form-control" th:value="${veterinario.nome}" type="text" name="nome" id="nome"
-                            placeholder="" required>
-                        <br>
-                    </div>
+                            <label for="crmv"> CRMV:</label>
+                            <input class="form-control" th:value="${veterinario.crmv}" type="number" id="crmv"
+                                name="crmv" required> <br>
+                        </div>
 
-                    <div class="col-md-4">
-                        <label for="dataDeNascimento"> Data de nascimento:</label>
-                        <input class="form-control" th:value="${veterinario.dataDeNascimento}" type="date"
-                            id="dataDeNascimento" name="dataDeNascimento" required> <br>
-                    </div>
+                        <div class="col-md-6">
+                            <label for="sexo"> Sexo:</label> <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo" id="macho1" value="Masculino">
+                                <label class="form-check-label" for="macho1"> Masculino </label>
+                            </div>
 
-                    <div class="col-md-4">
-                        <label for="email"> E-mail:</label>
-                        <input class="form-control" th:value="${veterinario.email}" type="text"
-                            id="email" name="email" required> <br>
-                    </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo" id="femea2" value="Feminino">
+                                <label class="form-check-label" for="femea2"> Feminino </label>
+                            </div>
+                            <br>
 
-                    <div class="col-md-4">
-                        <label for="telefone"> E-mail:</label>
-                        <input class="form-control" th:value="${veterinario.telefone}" type="number"
-                            id="telefone" name="telefone" required> <br>
-                    </div>
+                        </div>
 
-                    <div class="col-md-4">
-                        <label for="crmv"> CRMV:</label>
-                        <input class="form-control" th:value="${veterinario.crmv}" type="number"
-                            id="crmv" name="crmv" required> <br>
                     </div>
-
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
 
 
 
