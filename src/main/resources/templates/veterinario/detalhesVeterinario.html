@@ -3,7 +3,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h3 class="mt-4">Detalhes do Veterionário</h3>
+            <h3 class="mt-4">Detalhes do Veterinário</h3>
             <a href="/veterinario" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
 
             <div class="card shadow mb-4">
@@ -42,11 +42,14 @@
                         <select name="id" required>
                             <option value="">Escolha o animal</option>
                             <option th:each="animal : ${animais}" th:value="${animal.id}" th:text="${animal.nome}">
+                                
                             </option>
+                            
                         </select>
                         <input type="submit" class="btn btn-primary" value="Associar Animal" />
                     </form>
-
+                    
+                    
                 </div>
             </div>
 
