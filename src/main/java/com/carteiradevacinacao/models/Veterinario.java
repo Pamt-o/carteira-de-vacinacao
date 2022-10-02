@@ -24,20 +24,20 @@ public class Veterinario {
     @Column(name="MATRICULA")
     private int matricula;
 
-    @Column(name="NOME", length = 100, nullable = false)
+    @Column(name="NOME", length = 100)
     private String nome;
 
-    @Column(name="DATA_DE_NASCIMENTO", nullable = false)
+    @Column(name="DATA_DE_NASCIMENTO")
     private java.sql.Date dataDeNascimento;
 
-    @Column(name="SEXO", length = 20, nullable = false)
+    @Column(name="SEXO", length = 20)
     private String sexo;
 
     
-    @Column(name="EMAIL", length = 30, nullable = false)
+    @Column(name="EMAIL", length = 50)
     private String email;
 
-    @Column(name="TELEFONE", length = 100)
+    @Column(name="TELEFONE", length = 50)
     private long telefone;
 
     @Column(name="CRMV", length = 20)

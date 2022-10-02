@@ -11,7 +11,5 @@ public interface AnimalRepo extends JpaRepository<Animal, Integer>{
     //controller atualizar
     @Query(value = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END  from animal where id = :id", nativeQuery = true)
     public boolean exist(int id);
-
-
    
 }
