@@ -26,5 +26,7 @@ public class VeterinarioService {
         return repository.findById(matricula).get();
     }
 
-    
+    public void remover(Veterinario veterinario) {
+        repository.delete(veterinario);
+	}
 }

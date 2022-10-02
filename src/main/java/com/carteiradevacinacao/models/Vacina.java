@@ -16,16 +16,16 @@ public class Vacina {
     @Column(name="ID")
     private int idVacina;
 
-    @Column(name="NOME", length = 100, nullable = false)
+    @Column(name="NOME", length = 100)
     private String nomeVacina;
 
-    @Column(name="DATA_DE_VENCIMENTO_LOTE", nullable = false)
+    @Column(name="DATA_DE_VENCIMENTO_LOTE")
     private java.sql.Date dataVencimentoLote;
 
-    @Column(name="Marca", length = 30, nullable = false)
+    @Column(name="Marca", length = 30)
     private String marcaVacina;
 
-    @Column(name="DATA_APLICACAO", nullable = false)
+    @Column(name="DATA_APLICACAO")
     private java.sql.Date dataAplicacao;
     
 

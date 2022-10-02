@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.UniqueConstraint;
 
 
@@ -26,29 +25,29 @@ public class Animal{
     @Column(name="ID")
     private int id;
 
-    @Column(name="NOME", length = 100, nullable = false)
+    @Column(name="NOME", length = 100)
     private String nome;
 
     
-    @Column(name="DATA_DE_NASCIMENTO", nullable = false)
+    @Column(name="DATA_DE_NASCIMENTO")
     private java.sql.Date dataDeNascimento;
 
-    @Column(name="ESPECIE", length = 8, nullable = false)
+    @Column(name="ESPECIE", length = 8)
     private String especie;
 
-    @Column(name="COR_DA_PELAGEM", length = 100)
+    @Column(name="COR_DA_PELAGEM")
     private String corDaPelagem;
 
-    @Column(name="RAÇA", length = 100, nullable = false)
+    @Column(name="RAÇA", length = 50)
     private String raca;
 
-    @Column(name="SEXO", length = 5, nullable = false)
+    @Column(name="SEXO", length = 5)
     private String sexo;
 
-    @Column(name="NUMERO_DO_MICROSHIP", length = 100)
+    @Column(name="NUMERO_DO_MICROSHIP", length = 20)
     private int numeracaoMicroChip;
 
-    @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 100)
+    @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 20)
     private int registroGeralDoAnimal;
 
     @ManyToMany

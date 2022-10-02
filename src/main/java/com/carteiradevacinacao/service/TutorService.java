@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.carteiradevacinacao.models.Tutor;
+import com.carteiradevacinacao.models.Veterinario;
 import com.carteiradevacinacao.repository.TutorRepo;
 
 @Service
@@ -26,5 +27,8 @@ public class TutorService {
         return repository.findById(codigo).get();
     }
 
+    public void remover(Tutor tutor) {
+        repository.delete(tutor);
+	}
     
 }

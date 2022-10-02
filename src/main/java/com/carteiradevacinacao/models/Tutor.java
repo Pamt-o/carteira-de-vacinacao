@@ -25,19 +25,19 @@ public class Tutor {
     @Column(name="CODIGO")
     private int codigo;
 
-    @Column(name="NOME", length = 100, nullable = false)
+    @Column(name="NOME", length = 100)
     private String nome;
 
-    @Column(name="DATA_DE_NASCIMENTO", nullable = false)
+    @Column(name="DATA_DE_NASCIMENTO")
     private java.sql.Date dataDeNascimento;
 
-    @Column(name="EMAIL", length = 100, nullable = false)
+    @Column(name="EMAIL", length = 50)
     private String email;
 
-    @Column(name="TELEFONE", length = 100)
+    @Column(name="TELEFONE", length = 20)
     private long telefone;
 
-    @Column(name="SEXO", length = 10, nullable = false)
+    @Column(name="SEXO", length = 10)
     private String sexo;
 
 
@@ -50,10 +50,6 @@ public class Tutor {
     ) 
     private List<Animal> animais;
 
-    @Override
-    public String toString() {
-        return "Tutor [codigo=" + codigo + ", nome=" + nome + "]";
-    }
 
     public int getCodigo() {
         return codigo;
@@ -111,6 +107,10 @@ public class Tutor {
         this.sexo = sexo;
     }
 
+    @Override
+    public String toString() {
+        return "Tutor [codigo=" + codigo + ", nome=" + nome + "]";
+    }
 
 }
 
