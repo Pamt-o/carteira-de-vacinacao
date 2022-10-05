@@ -60,6 +60,16 @@ public class Animal{
     )
     private List<Tutor> tutores;
 
+    @ManyToMany
+    @JoinTable(
+        name="AnimaisVeterinarios", 
+        uniqueConstraints = @UniqueConstraint(columnNames = { "matricula_veterinario", "id_animal" }),
+        joinColumns        = @JoinColumn(name = "id_animal"), 
+        inverseJoinColumns = @JoinColumn(name = "matricula_veterinario")
+    )
+    private List<Veterinario> veterinarios;
+
+
 
 
     public int getId() {
@@ -141,6 +151,13 @@ public class Animal{
 
     public void setTutores(List<Tutor> tutores) {
         this.tutores = tutores;
+    }
+    public List<Veterinario> getVeterinarios() {
+        return veterinarios;
+    }
+
+    public void setVeterinarios(List<Veterinario> veterinarios) {
+        this.veterinarios = veterinarios;
     }
 
 
