@@ -69,8 +69,23 @@ public class Animal{
     )
     private List<Veterinario> veterinarios;
 
+    @ManyToMany
+    @JoinTable(
+        name="AnimaisCarteiras", 
+        uniqueConstraints = @UniqueConstraint(columnNames = { "id_carteira", "id_animal" }),
+        joinColumns        = @JoinColumn(name = "id_animal" ),
+        inverseJoinColumns = @JoinColumn(name = "id_carteira")
+    ) 
+    private List<Carteira> carteiras;
 
 
+    public List<Carteira> getCarteiras() {
+        return carteiras;
+    }
+
+    public void setCarteiras(List<Carteira> carteiras) {
+        this.carteiras = carteiras;
+    }
 
     public int getId() {
         return id;

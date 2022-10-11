@@ -1,0 +1,24 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Cadastrar carteira de vacinação</h3>
+            <a href="/carteira" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+            <div class="row">
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4" style="padding: 30px;">
+                <form method="post" id="form-cadastro" action="/carteira/criar" onsubmit="return confirm('Confirma ação')">
+                    <div class="row">
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>    
+        </div>
+
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

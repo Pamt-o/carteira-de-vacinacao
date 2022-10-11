@@ -18,8 +18,7 @@
                                 </thead>
                             </table>
                         </div>
-
-                
+                        <br>
                         Tutor(es):
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <tr>
@@ -33,9 +32,29 @@
                                 <td th:text="${tutor.nome}"></td>
                             </tr> 
                         </table>
+                        <br>
+                        Veterinário(s):
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                            </tr>
+                           
+                            <tr th:each="veterinario : ${animal.veterinarios}">
+                                <td th:text="${veterinario.matricula}"></td>
+                                <td th:text="${veterinario.nome}"></td>
+                            </tr>
+                        </table>
 
+                        <form method="post" id="form-cadastro" action="/carteira/criar" onsubmit="return confirm('Confirma ação')">
+                            <div class="row">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Criar carteira de vacinação</button>
+                        </form>
 
                     </div>
+
+                    
                 </div>
 
             </div>
