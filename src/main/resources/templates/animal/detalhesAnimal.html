@@ -1,68 +1,53 @@
 <!-- Começo -->
 <div th:replace="compartilhado/top"></div>
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid px-4">
-                <h3 class="mt-4">Detalhes do Pet</h3>
-                <a href="/animal" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
-                
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <br><b>Nome: </b> <span th:text="${animal.nome}"></span>
-                                    <br><b>Data de nascimento: </b> <span th:text="${animal.dataDeNascimento}"></span>
-                                    <br><b>Especie: </b> <span th:text="${animal.especie}"></span>
-                                    <br><b>Sexo: </b> <span th:text="${animal.sexo}"></span>
-                                </thead>
-                            </table>
-                        </div>
-                        <br>
-                        Tutor(es):
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                            </tr>
-                             
-                            <tr th:each="tutor : ${animal.tutores}">
-                            
-                                <td th:text="${tutor.codigo}"></td>
-                                <td th:text="${tutor.nome}"></td>
-                            </tr> 
-                        </table>
-                        <br>
-                        Veterinário(s):
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                            </tr>
-                           
-                            <tr th:each="veterinario : ${animal.veterinarios}">
-                                <td th:text="${veterinario.matricula}"></td>
-                                <td th:text="${veterinario.nome}"></td>
-                            </tr>
-                        </table>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Detalhes do Pet</h3>
+            <a href="/animal" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
 
-                        <form method="post" id="form-cadastro" action="/carteira/criar" onsubmit="return confirm('Confirma ação')">
-                            <div class="row">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Criar carteira de vacinação</button>
-                        </form>
-
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <br><b>Nome: </b> <span th:text="${animal.nome}"></span>
+                                <br><b>Data de nascimento: </b> <span th:text="${animal.dataDeNascimento}"></span>
+                                <br><b>Especie: </b> <span th:text="${animal.especie}"></span>
+                                <br><b>Sexo: </b> <span th:text="${animal.sexo}"></span>
+                            </thead>
+                        </table>
                     </div>
+                    <br>
+                    Tutor(es):
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                        </tr>
 
-                    
+                        <tr th:each="tutor : ${animal.tutores}">
+
+                            <td th:text="${tutor.codigo}"></td>
+                            <td th:text="${tutor.nome}"></td>
+                        </tr>
+                    </table>
+                    <br>
+                    Veterinário(s):
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                        </tr>
+
+                        <tr th:each="veterinario : ${animal.veterinarios}">
+                            <td th:text="${veterinario.matricula}"></td>
+                            <td th:text="${veterinario.nome}"></td>
+                        </tr>
+                    </table>
                 </div>
-
             </div>
-
-        </main>
-
-    
-
-
-<!-- fim -->
-<div th:replace="compartilhado/baixo"></div>
+        </div>
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

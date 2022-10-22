@@ -17,8 +17,6 @@ import com.carteiradevacinacao.service.CarteiraService;
 @Controller
 public class CarteiraController {
 
-  
-
     @Autowired
     private CarteiraRepo carteiraRepo;
 
@@ -35,18 +33,6 @@ public class CarteiraController {
         model.addAttribute("carteiras", carteiras);
         return "carteira/index";
     }
-
-    // @GetMapping("/carteira/novo")
-    // public String novo() {
-    //     return "carteira/novo";
-    // }
-
-    // @PostMapping("/carteira/criar")
-    // public String criar(Carteira carteira) {
-    //     carteiraRepo.save(carteira);
-    //     return "carteira/novo";
-
-    // }
 
     @GetMapping("/detalhesCarteira/{id}")
     public ModelAndView getCarteiraDetalhes(@PathVariable(name = "id") Integer id) {
@@ -70,6 +56,7 @@ public class CarteiraController {
         carteira.getAnimais().add(animal);
         carteiraService.salvar(carteira);
 
+    
         return "redirect:/detalhesCarteira/" + idcarteira;
     }
 

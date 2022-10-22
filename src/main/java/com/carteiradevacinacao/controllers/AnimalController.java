@@ -51,8 +51,9 @@ public class AnimalController {
 
     // Salvando a criação do cadastro no banco
     @PostMapping("/animal/criar")
-    public String criar(Animal animal) {
+    public String criar(Animal animal, Carteira carteira) {
         repository.save(animal);
+        carteiraRepo.save(carteira);
         return "redirect:/animal";
     }
 
@@ -95,16 +96,4 @@ public class AnimalController {
         return "redirect:/animal";
     }
 
-
-    @GetMapping("/carteira/novo")
-    public String novoCarteira() {
-        return "carteira/novo";
-    }
-
-    @PostMapping("/carteira/criar")
-    public String criar(Carteira carteira) {
-        carteiraRepo.save(carteira);
-        return "redirect:/carteira";
-
-    }
 }

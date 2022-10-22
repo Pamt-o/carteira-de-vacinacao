@@ -1,9 +1,8 @@
 package com.carteiradevacinacao.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import java.util.List;
+import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
@@ -27,6 +26,15 @@ public class Vacina {
 
     @Column(name="DATA_APLICACAO")
     private java.sql.Date dataAplicacao;
+
+    @OneToMany
+    @JoinTable(
+        name="CarteirasVacinas", 
+        uniqueConstraints = @UniqueConstraint(columnNames = { "id_carteira", "idVacina" }),
+        joinColumns        = @JoinColumn(name = "idVacina" ),
+        inverseJoinColumns = @JoinColumn(name = "id_carteira")
+    ) 
+    private List<Carteira> carteiras;
     
 
     public int getIdVacina() {

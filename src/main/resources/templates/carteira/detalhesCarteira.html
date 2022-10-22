@@ -12,12 +12,12 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <br><b>Id: </b> <span th:text="${carteira.id}"></span>
+                                <br><b>Nome do Animal: </b> <span th:text="${carteira.nome}"></span>
                             </thead>
                         </table>
                     </div>
                     <br>
-                    <br>
-                    <b> Animais Associados:</b>
+                    <b> Associar:</b>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -28,12 +28,11 @@
                          <tr th:each="animal : ${carteira.animais}">
                             <td th:text="${animal.id}"></td>
                             <td th:text="${animal.nome}"></td>
-                           
                         </tr> 
                     </table>
-                    <br>
+                    
                     <form th:action="@{/associarAnimalCarteira(idcarteira=${carteira.id})}" method="POST">
-                        <label><b>Animais:</b></label>
+                        <label><b>Animal:</b></label>
                         <select name="id" required>
                             <option value="">Escolha o animal</option>
                             <option th:each="animal : ${animais}" th:value="${animal.id}" th:text="${animal.nome}">

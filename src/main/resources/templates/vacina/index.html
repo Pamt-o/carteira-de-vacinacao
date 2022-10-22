@@ -5,13 +5,12 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h3 class="mt-4">Carteiras de vacinação dos Pet's</h3>
-            <div class="row">
-            </div>
+            <h3 class="mt-4">Vacinas dos Pet's</h3>
+            
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="/animal"class="m-0 font-weight-bold text-primary" style="display: inline-block;">Voltar</a>
+                    <a href="/carteira"class="m-0 font-weight-bold text-primary" style="display: inline-block;">Voltar</a>
                     
                 </div>
                 <div class="card-body">
@@ -29,8 +28,10 @@
                             <tbody>
                                 <tr th:each="carteira : ${carteiras}">
                                     <td th:text="${carteira.id}"></td>
-                                    <td th:text="${carteira.nome}"></td> 
-                                    <td> <a th:href="@{'/detalhesCarteira/' + ${carteira.id}}">Detalhes</a></td>                                 
+                                    <td th:text="${carteira.nomeAnimal}"></td>
+                                    <td> <a th:href="@{'/detalhesCarteira/' + ${carteira.id}}">Detalhes</a></td>
+                                    <td> <a th:href="@{'/vacina'}">Vacinas</a></td>
+                                    
                                     <td><a href="#"
                                             th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/carteira/{id}(id=${carteira.id})} + '/excluir\' } '"
                                             class="btn"> <input type=image src="/img/button_excluir.png" width="36">

@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.persistence.UniqueConstraint;
 
 
@@ -69,11 +69,11 @@ public class Animal{
     )
     private List<Veterinario> veterinarios;
 
-    @ManyToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinTable(
         name="AnimaisCarteiras", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "id_carteira", "id_animal" }),
-        joinColumns        = @JoinColumn(name = "id_animal" ),
+        joinColumns        = @JoinColumn(name = "id_animal"),
         inverseJoinColumns = @JoinColumn(name = "id_carteira")
     ) 
     private List<Carteira> carteiras;

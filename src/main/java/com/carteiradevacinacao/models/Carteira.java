@@ -14,12 +14,21 @@ public class Carteira {
     @Column(name="ID")
     private int id;
 
+    private String nome;
 
-    @ManyToMany
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinTable(
         name="AnimaisCarteiras", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "id_carteira", "id_animal" }),
-        joinColumns        = @JoinColumn(name = "id_carteira" ),
+        joinColumns        = @JoinColumn(name = "id_carteira"),
         inverseJoinColumns = @JoinColumn(name = "id_animal")
     ) 
     private List<Animal> animais;
@@ -57,5 +66,10 @@ public class Carteira {
         this.vacinas = vacinas;
     }
 
+    
+
+  
+
+  
    
 }
