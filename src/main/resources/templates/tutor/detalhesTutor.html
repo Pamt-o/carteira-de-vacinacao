@@ -20,16 +20,15 @@
                     </div>
                     <br>
                     <br>
-                    <b> Animais Associados:</b>
+                    <b> Animais Associados</b>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Id Animal</th>
                                 <th>Animal</th>
                                 <th>Data de nascimento</th>
-                                <th>Especie</th>
+                                <th>Espécie</th>
                                 <th>Sexo</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tr th:each="animal : ${tutor.animais}">
@@ -38,7 +37,6 @@
                             <td th:text="${animal.dataDeNascimento}"></td>
                             <td th:text="${animal.especie}"></td>
                             <td th:text="${animal.sexo}"></td>
-                           
                         </tr>
                     </table>
                     <br>

@@ -1,0 +1,42 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Editar vacina</h3>
+            <a href="/vacina" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+            <div class="row">
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4" style="padding: 30px;">
+                <form method="post" th:action="@{'/vacina/' + ${vacina.idVacina} + '/atualizar'}">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <label for="nomeVacina"> Nome da vacina:</label>
+                            <input class="form-control" th:value="${vacina.nomeVacina}"type="text" name="nomeVacina" id="nomeVacina" placeholder=""
+                                required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="dataVencimentoLote"> Data de venciamento do lote:</label>
+                            <input class="form-control" th:value="${vacina.dataVencimentoLote}" type="date" id="dataVencimentoLote" name="dataVencimentoLote"
+                                required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="marcaVacina"> Marca:</label>
+                            <input class="form-control" th:value="${vacina.marcaVacina}" type="text" id="marcaVacina" name="marcaVacina" required> <br>
+                        </div>
+                        
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

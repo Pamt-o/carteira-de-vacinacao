@@ -3,7 +3,7 @@ package com.carteiradevacinacao.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+// import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,7 +51,7 @@ public class Animal{
     @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 20)
     private int registroGeralDoAnimal;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(
         name="AnimaisTutores", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "codigo_tutor", "id_animal" }),
