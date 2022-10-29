@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.carteiradevacinacao.models.Animal;
+import com.carteiradevacinacao.models.Carteira;
 import com.carteiradevacinacao.repository.AnimalRepo;
+import com.carteiradevacinacao.repository.CarteiraRepo;
 import com.carteiradevacinacao.service.AnimalService;
 
 
@@ -26,6 +28,9 @@ public class AnimalController {
 
     @Autowired
     private AnimalService animalService;
+
+    @Autowired
+    private CarteiraRepo carteiraRepo;
 
 
 
@@ -46,8 +51,9 @@ public class AnimalController {
 
     // Salvando a criação do cadastro no banco
     @PostMapping("/animal/criar")
-    public String criar(Animal animal) {
+    public String criar(Animal animal, Carteira carteira) {
         repository.save(animal);
+        carteiraRepo.save(carteira);
         return "redirect:/animal";
     }
 

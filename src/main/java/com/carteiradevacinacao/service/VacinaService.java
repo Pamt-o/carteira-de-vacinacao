@@ -3,10 +3,12 @@ package com.carteiradevacinacao.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.carteiradevacinacao.models.Vacina;
 import com.carteiradevacinacao.repository.VacinaRepo;
 
+@Service
 public class VacinaService {
     
     @Autowired

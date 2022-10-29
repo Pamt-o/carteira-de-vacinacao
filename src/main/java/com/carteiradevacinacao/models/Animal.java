@@ -3,7 +3,7 @@ package com.carteiradevacinacao.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+// import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.persistence.UniqueConstraint;
 
 
@@ -51,7 +51,7 @@ public class Animal{
     @Column(name = "REGISTRO_GERAL_DO_ANIMAL", length = 20)
     private int registroGeralDoAnimal;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(
         name="AnimaisTutores", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "codigo_tutor", "id_animal" }),
@@ -69,8 +69,23 @@ public class Animal{
     )
     private List<Veterinario> veterinarios;
 
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+        name="AnimaisCarteiras", 
+        uniqueConstraints = @UniqueConstraint(columnNames = { "id_carteira", "id_animal" }),
+        joinColumns        = @JoinColumn(name = "id_animal"),
+        inverseJoinColumns = @JoinColumn(name = "id_carteira")
+    ) 
+    private List<Carteira> carteiras;
 
 
+    public List<Carteira> getCarteiras() {
+        return carteiras;
+    }
+
+    public void setCarteiras(List<Carteira> carteiras) {
+        this.carteiras = carteiras;
+    }
 
     public int getId() {
         return id;

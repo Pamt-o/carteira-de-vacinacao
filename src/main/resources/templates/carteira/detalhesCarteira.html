@@ -1,0 +1,138 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Detalhes da carteira</h3>
+            <a href="/carteira" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <br><b>Nome do Animal: </b> <span th:text="${carteira.nome}"></span>
+                                    <br><b>Data de nascimento: </b> <span th:text="${carteira.dataDeNascimento}"></span>
+                                    <br><b>Raça: </b> <span th:text="${carteira.raca}"></span>
+                                    <br><b>Espécie: </b> <span th:text="${carteira.especie}"></span>
+                                    <!-- action="/detalhesCarteira/{id}" -->
+                                </thead>
+                            </table>
+                        </div>
+
+                        <div class="col-md-5">
+                            <br>
+                            <b> Associar</b>
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Id Animal</th>
+                                        <th>Animal</th>
+                                    </tr>
+                                </thead>
+                                <tr th:each="animal : ${carteira.animais}">
+                                    <td th:text="${animal.id}"></td>
+                                    <td th:text="${animal.nome}"></td>
+                                </tr>
+                            </table>
+                            <br>
+                            <form th:action="@{/associarAnimalCarteira(idCarteira=${carteira.idCarteira})}"
+                                method="POST">
+                                <label><b>Animal:</b></label>
+                                <select name="id" required>
+                                    <option value="">Escolha o animal</option>
+                                    <option th:each="animal : ${animais}" th:value="${animal.id}"
+                                        th:text="${animal.nome}">
+                                    </option>
+                                </select>
+                                <input type="submit" class="btn btn-primary" value="Associar Animal" />
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <br>
+                    <br>
+                    <form method="post" id="form-cadastro" onsubmit="return confirm('Confirma ação')">
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <label for="nomeVacina"><b>Vacina</b></label>
+                                <input class="form-control" type="text" name="nomeVacina" id="nomeVacina"required>
+                                <br>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="dataVencimentoLote"><b>Vencimento do Lote</b></label>
+                                <input class="form-control" type="date" id="dataVencimentoLote" name="dataVencimentoLote" required>
+                                <br>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="marcaVacina"><b>Marca</b> </label>
+                                <input class="form-control" type="text" id="marcaVacina" name="marcaVacina" required>
+                                <br>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="dataAplicacao"><b>Aplicada em:</b> </label>
+                                <input class="form-control" type="date" id="dataAplicacao" name="dataAplicacao" required>
+                                <br>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="proximaDose"><b>Próxima dose em:</b> </label>
+                                <input class="form-control" type="date" id="proximaDose" name="proximaDose" required>
+                                <br>
+                            </div>
+
+                            <!-- <div class="col-md-4">
+                                <label for="dataAplicacao"> Veterinário Responsável:</label>
+                                <input class="form-control" type="text" id="dataAplicacao" name="dataAplicacao"
+                                    required>
+                                <br>
+                            </div> -->
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                    <br>
+                    <b> Vacinas tomadas</b>
+                    <br>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Vacina</th>
+                                <th>Marca</th>
+                                <th>Aplicação</th>
+                                <th>Próxima dose</th>
+
+                            </tr>
+                        </thead>
+                        <tr th:each="vacina:${vacinas}">
+                            <td th:text="${vacina.nomeVacina}"></td>
+                            <td th:text="${vacina.marcaVacina}"></td>
+                            <td th:text="${vacina.dataAplicacao}"></td>
+                            <td th:text="${vacina.proximaDose}"></td>
+                        </tr>
+                    </table>
+
+
+                    
+                </div>
+
+                
+            </div>
+
+        </div>
+
+
+
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

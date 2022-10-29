@@ -1,0 +1,51 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Carteiras de vacinação dos Pet's</h3>
+            <div class="row">
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <a href="/animal" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+                    
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" th:object="${carteira}"id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nome do animal</th>
+                                    <th></th>
+                                    <th></th>
+            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="carteira : ${carteiras}">
+                                    <td th:text="${carteira.idCarteira}"></td>
+                                    <td th:text="${carteira.nome}"></td> 
+                                    <td> <a th:href="@{'/detalhesCarteira/' + ${carteira.idCarteira}}">Detalhes</a></td>
+                                    <!-- <td> <a th:href="@{'/vacina'}">Vacina</a></td> -->
+                                     <!--  -->
+                            
+                                    <!-- <td><a href="#"
+                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/carteira/{id}(id=${carteira.id})} + '/excluir\' } '"
+                                            class="btn"> <input type=image src="/img/button_excluir.png" width="36">
+                                    </td>  -->
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+      
+    </main>
+<!-- fim -->
+<div th:replace="compartilhado/baixo"></div>

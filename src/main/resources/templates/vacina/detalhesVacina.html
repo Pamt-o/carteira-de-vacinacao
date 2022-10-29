@@ -1,0 +1,108 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Detalhes da vacina</h3>
+            <a href="/carteira" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <br><b>Id: </b> <span th:text="${carteira.idCarteira}"></span>
+                                <br><b>Nome do Animal: </b> <span th:text="${carteira.nome}"></span>
+                            </thead>
+                        </table>
+                    </div>
+                    <br>
+                    <b> Associar:</b>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id Animal</th>
+                                <th>Animal</th>
+                            </tr>
+                        </thead>
+                         <tr th:each="vacina : ${carteira.vacinas}">
+                            <td th:text="${vacina.idVacina}"></td>
+                            <td th:text="${vacina.nomeVacina}"></td>
+                        </tr> 
+                    </table>
+                    
+                    <form th:action="@{/associarCarteiraVacinas(idcarteira=${carteira.id})}" method="POST">
+                        <label><b>Animal:</b></label>
+                        <select name="id" required>
+                            <option value="">Escolha o animal</option>
+                            <option th:each="vacina : ${vacinas}" th:value="${vacina.idVacina}" th:text="${vacina.nomeVacina}">
+                            </option>
+                        </select>
+                        <input type="submit" class="btn btn-primary" value="Associar Animal"/>
+                    </form> 
+
+
+                    <!-- <b> Associar:</b>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id Animal</th>
+                                <th>Animal</th>
+                            </tr>
+                        </thead>
+                         <tr th:each="animal : ${carteira.animais}">
+                            <td th:text="${animal.id}"></td>
+                            <td th:text="${animal.nome}"></td>
+                        </tr> 
+                    </table> -->
+
+
+
+                    <form th:action="@{/vacina/criar}" th:object="${vacina}" method="POST" id="formAluno">
+                        <label>Nome:</label>
+                        <input type="text" placeholder="Digite o nome" th:value="${vacina.nomeVacina}" name="nome" required/>
+                        
+                        <label>Curso:</label>
+                
+                        <select th:field="${vacina.carteira}" required>
+                            <option value="">Escolha o curso</option>
+                            <option th:each="vacina : ${vacinas}"
+                                        th:value="${vacina.idVacina}"
+                                        th:text="${vacina.nomeVacina}">
+                            </option>
+                        </select>
+                
+                
+                        <input type="submit" value="Salvar" />
+                        <input type="reset"  value="Limpar" />
+                    </form>
+                    <!-- <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Matricula</th>
+                            <th>Nome</th>
+                            <th>Curso</th>
+                            <th>Remover</th>
+                            <th>Editar</th>
+                        </tr>
+                       
+                        <tr th:each="aluno : ${alunos}">
+                            <td th:text="${aluno.matricula}"></td>
+                            <td th:text="${aluno.nome}"></td>
+                            <td th:text="${aluno.curso?.nome}"></td>
+                            <td> <a th:href="@{'/removerAluno?matricula=' + ${aluno.matricula}}">Remover</a></td>
+                            <td> <a th:href="@{'/editarAluno?matricula=' + ${aluno.matricula}}">Editar</a></td>
+                        </tr>
+                    </table> -->
+
+                </div>
+            </div>
+
+        </div>
+
+        
+
+    </main>
+<!-- fim -->
+<div th:replace="compartilhado/baixo"></div>

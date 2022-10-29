@@ -4,7 +4,52 @@
 <!--conteudo-->
 <div id="layoutSidenav_content">
     <main>
-        
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Vacinas cadastradas</h3>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <a href="/vacina/novo"><img src="/img/icon_cadastrar.png" class="btn" width="100"
+                            alt="Cadastrar das vacinas"></a>
+                    <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Novo</h6>
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nome da vacina</th>
+                                    <th>Data de vencimento do lote</th>
+                                    <th>Marca</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="vacina : ${vacinas}">
+                                    <td th:text="${vacina.nomeVacina}"></td>
+                                    <td th:text="${vacina.dataVencimentoLote}"></td>
+                                    <td th:text="${vacina.marcaVacina}"></td>
+                                    <td> <a th:href="@{'/detalhesVacina/' + ${vacina.idVacina}}">Detalhes</a></td> 
+                                    <td data-title="Ação"><a th:href="@{'/vacina/' + ${vacina.idVacina}}"><img
+                                        src="img/button_alterar.png" class="button_alterar"
+                                        alt="Alterar Cadastro" width="30"></a>
+                                    <td><a href="#"
+                                            th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \''+ @{/vacina/{idVacina}(idVacina=${vacina.idVacina})} + '/excluir\' } '"
+                                            class="btn"> <input type=image src="/img/button_excluir.png" width="36">
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <a href="/carteira" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+                </div>
+            </div>
+
     </main>
-<!-- fim -->
-<div th:replace="compartilhado/baixo"></div>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

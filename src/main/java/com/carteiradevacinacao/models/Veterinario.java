@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 
-
 @Entity
 @Table
 public class Veterinario {
@@ -117,10 +116,9 @@ public class Veterinario {
         this.animais = animais;
     }
 
-
     @Override
     public String toString() {
         return "Veterinario [ matricula=" + matricula + ", nome=" + nome + "]";
     }
-    
+
 }
