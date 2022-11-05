@@ -18,7 +18,8 @@ public class LoginInterceptorAppConfig extends WebMvcConfigurerAdapter {
                         "/css/**",
                         "/img/**",
                         "/lib/**",
-                        "/assets/**");
+                        "/assets/**"
+                        );
 
     }
 
