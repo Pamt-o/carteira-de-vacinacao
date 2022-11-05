@@ -6,9 +6,19 @@ import javax.persistence.*;
 @Table(name = "administradores")
 public class Administrador {   
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
+
+    @Column(name = "nome", length = 100)
+    private String nome;
+
+    @Column(name = "email", length = 100)
+    private String email;
+
+    @Column(name = "senha", length = 20)
+    private String senha;
+
 
     public int getId() {
         return id;
@@ -18,9 +28,6 @@ public class Administrador {
         this.id = id;
     }
 
-    @Column(name = "nome", length = 100, nullable = false)
-    private String nome;
-
     public String getNome() {
         return nome;
     }
@@ -28,10 +35,6 @@ public class Administrador {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-
-    @Column(name = "email", length = 180, nullable = false)
-    private String email;
 
     public String getEmail() {
         return email;
@@ -41,14 +44,13 @@ public class Administrador {
         this.email = email;
     }
 
-    @Column(name = "senha", length = 255, nullable = false)
-    private String senha;
-
     public String getSenha() {
-        return senha;
+        return senha.substring(0, 3) + "*********";
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+
 }
