@@ -1,0 +1,44 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-2">Editar cadastro do Administrador</h3>
+            <a href="/administradores" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-2" style="padding: 30px;">
+
+                <form method="post" th:action="@{'/administradores/' + ${administrador.id} + '/atualizar'}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="nome"><b>Nome</b></label>
+                            <input class="form-control" th:value="${administrador.nome}" type="text" name="nome" id="nome"
+                                placeholder="" required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email"><b>E-mail</b></label>
+                            <input class="form-control" th:value="${administrador.email}" type="email"
+                                id="email" name="email" required> <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="senha"><b>Senha</b></label>
+                            <input class="form-control" th:value="${administrador.senha}" type="text" id="senha" name="senha"
+                                required> <br>
+                        </div>
+
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+
+
+
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>

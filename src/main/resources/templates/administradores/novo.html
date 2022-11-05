@@ -1,0 +1,41 @@
+<!-- Começo -->
+<div th:replace="compartilhado/top"></div>
+<!--conteudo-->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">Novo Administrador</h3>
+            <a href="/administradores" class="btn btn-primary" style="margin-bottom: 20px;">Voltar</a>
+            <div class="row">
+            </div>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4" style="padding: 30px;">
+                <form method="post" id="form-cadastro" action="/administradores/criar" onsubmit="return confirm('Confirma ação')">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <label for="nome"><b>Nome</b> </label>
+                            <input class="form-control" type="text" name="nome" id="nome" placeholder="" required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email"><b>E-mail</b></label>
+                            <input class="form-control" type="email" id="email" name="email" required>
+                            <br>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="senha"> <b>Senha</b></label>
+                            <input class="form-control" type="text" id="senha" name="senha" required> <br>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>    
+        </div>
+
+    </main>
+    <!-- fim -->
+    <div th:replace="compartilhado/baixo"></div>
