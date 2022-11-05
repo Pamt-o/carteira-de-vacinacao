@@ -24,12 +24,13 @@ public class LoginController {
     public String index(){
         return "login/index";
     }
+
     
     @PostMapping("/logar")
     public String logar(Model model, String email, String senha, String lembrar, HttpServletResponse response) throws IOException{
         Administrador adm = this.repo.Login(email, senha);
         if(adm != null){
-            int tempoLogado = (60*60);
+            int tempoLogado = (60*60);//um dia
             if(lembrar != null) tempoLogado = (60*60*24*365);  //um ano de cookie 
             CookieService.setCookie(response, "usuarioId", String.valueOf(adm.getId()), tempoLogado);
             CookieService.setCookie(response, "nomeUsuario", String.valueOf(adm.getNome()), tempoLogado);
