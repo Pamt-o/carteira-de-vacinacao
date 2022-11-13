@@ -16,7 +16,7 @@ public class Administrador {
     @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "senha", length = 20)
+    @Column(name = "senha")
     private String senha;
 
 
@@ -45,7 +45,7 @@ public class Administrador {
     }
 
     public String getSenha() {
-        return senha.substring(0, 3) + "*********";
+        return senha.substring(0, 3) + "*****";
     }
 
     public void setSenha(String senha) {
