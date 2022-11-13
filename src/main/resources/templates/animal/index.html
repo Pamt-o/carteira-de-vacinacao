@@ -38,7 +38,7 @@
                                     <td th:text="${animal.nome}"></td>
                                     <td th:text="${animal.especie}"></td>
                                     <td th:text="${animal.sexo}"></td>
-                                    <td th:text="${animal.dataDeNascimento}"></td>
+                                    <td th:text="${#dates.format(animal.dataDeNascimento,'dd/MM/yyyy')}"></td>
                                     <td> <a th:href="@{'/detalhesAnimal/' + ${animal.id}}">Detalhes</a></td>
                                     <td> <a th:href="@{'/carteira'}">Carteira de vacina</a></td>
                                     <td data-title="Ação"><a th:href="@{'/animal/' + ${animal.id}}"><img

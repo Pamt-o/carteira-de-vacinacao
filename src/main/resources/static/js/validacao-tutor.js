@@ -33,17 +33,17 @@ function validacao_tutor(item){
 
 }
 
-function maskTel() {
-    let strtel = telefone.value;
-    if( strtel.length == 2){
+function maskTelefone() {
+    let tel = telefone.value;
+    if( tel.length == 2){
         telefone.value +=") ";
         telefone.value = "(" + telefone.value;
     }
-    if (strtel.length == 10) telefone.value += "-";
+    if (tel.length == 10) telefone.value += "-";
 }
 
 
 
 //validação a cada alteração de entrada
 dataNascimento.addEventListener('input', function () { validacao_tutor(dataNascimento) });
-telefone.addEventListener('input', function () { maskTel() });
+telefone.addEventListener('input', function () { maskTelefone() });

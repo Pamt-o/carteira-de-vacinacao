@@ -12,8 +12,8 @@
                         <div class="col-md-5">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                    <br><b>Nome do Animal: </b> <span th:text="${carteira.nome}"></span>
-                                    <br><b>Data de nascimento: </b> <span th:text="${carteira.dataDeNascimento}"></span>
+                                    <br><b>Nome do animal: </b> <span th:text="${carteira.nome}"></span>
+                                    <br><b>Data de nascimento: </b> <span th:text="${#dates.format(carteira.dataDeNascimento, 'dd/MM/yyyy')}"></span>
                                     <br><b>Raça: </b> <span th:text="${carteira.raca}"></span>
                                     <br><b>Espécie: </b> <span th:text="${carteira.especie}"></span>
                                     <!-- action="/detalhesCarteira/{id}" -->
@@ -58,7 +58,7 @@
                 <div class="card-body">
                     <br>
                     <br>
-                    <form method="post" id="form-cadastro" onsubmit="return confirm('Confirma ação')">
+                    <form method="post" id="form-cadastro" th:object="${carteira}" onsubmit="return confirm('Confirma ação')">
                         <div class="row">
                             <div class="col-md-4">
 
@@ -91,12 +91,6 @@
                                 <br>
                             </div>
 
-                            <!-- <div class="col-md-4">
-                                <label for="dataAplicacao"> Veterinário Responsável:</label>
-                                <input class="form-control" type="text" id="dataAplicacao" name="dataAplicacao"
-                                    required>
-                                <br>
-                            </div> -->
 
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
@@ -111,27 +105,22 @@
                                 <th>Marca</th>
                                 <th>Aplicação</th>
                                 <th>Próxima dose</th>
+                                
 
                             </tr>
                         </thead>
                         <tr th:each="vacina:${vacinas}">
                             <td th:text="${vacina.nomeVacina}"></td>
                             <td th:text="${vacina.marcaVacina}"></td>
-                            <td th:text="${vacina.dataAplicacao}"></td>
-                            <td th:text="${vacina.proximaDose}"></td>
+                            <td th:text="${#dates.format(vacina.dataAplicacao, 'dd/MM/yyyy')}"></td>
+                            <td th:text="${#dates.format(vacina.proximaDose, 'dd/MM/yyyy')}"></td>
+                        
                         </tr>
+                        
                     </table>
-
-
-                    
                 </div>
-
-                
             </div>
-
         </div>
-
-
 
     </main>
     <!-- fim -->
