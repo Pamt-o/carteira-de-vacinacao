@@ -34,6 +34,8 @@ public class CarteiraController {
     @Autowired
     private AnimalService animalService;
 
+ 
+
 
     @GetMapping("/carteira")
     public String index(Model model) {
@@ -60,7 +62,7 @@ public class CarteiraController {
 
     //Associar Animal com a Carteira
     @PostMapping("/associarAnimalCarteira")
-    public String associarAnimalVet(@ModelAttribute Animal animal, @RequestParam Integer idCarteira) {
+    public String associarAnimalCarteira(@ModelAttribute Animal animal, @RequestParam Integer idCarteira) {
         
         Carteira carteira = carteiraService.getCarteiraById(idCarteira);
         animal = animalService.getAnimalById(animal.getId());
@@ -72,7 +74,7 @@ public class CarteiraController {
     }
 
     @PostMapping("/detalhesCarteira/{idCarteira}")
-    public String um(@PathVariable(name = "idCarteira") Integer idCarteira, Vacina vacina) {
+    public String detalhesCarteira(@PathVariable(name = "idCarteira") Integer idCarteira, Vacina vacina) {
         Carteira carteira = carteiraService.getCarteiraById(idCarteira);
         vacina.setCarteira(carteira);
         vacinaRepo.save(vacina);

@@ -12,7 +12,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <br><b>Nome: </b> <span th:text="${animal.nome}"></span>
-                                <br><b>Data de nascimento: </b> <span th:text="${animal.dataDeNascimento}"></span>
+                                <br><b>Data de nascimento: </b> <span th:text="${#dates.format(animal.dataDeNascimento, 'dd/MM/YYYY')}"></span>
                                 <br><b>Especie: </b> <span th:text="${animal.especie}"></span>
                                 <br><b>Sexo: </b> <span th:text="${animal.sexo}"></span>
                             </thead>

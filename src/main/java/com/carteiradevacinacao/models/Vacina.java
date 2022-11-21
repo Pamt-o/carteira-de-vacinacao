@@ -1,7 +1,6 @@
 package com.carteiradevacinacao.models;
 
 
-
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,6 +29,8 @@ public class Vacina {
 
     @Column(name="PROXIMA_DOSE")
     private java.sql.Date proximaDose;
+
+  
 
 
     @ManyToOne(cascade = {CascadeType.ALL})
@@ -113,6 +114,7 @@ public class Vacina {
     public void setCarteira(Carteira carteira) {
         this.carteira = carteira;
     }
+
     
 
     

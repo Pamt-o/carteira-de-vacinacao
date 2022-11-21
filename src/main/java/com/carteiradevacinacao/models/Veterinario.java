@@ -37,10 +37,12 @@ public class Veterinario {
     private String email;
 
     @Column(name="TELEFONE", length = 50)
-    private long telefone;
+    private String telefoneVet;
 
     @Column(name="CRMV", length = 20)
     private int crmv;
+
+
 
     @ManyToMany
     @JoinTable(
@@ -92,12 +94,12 @@ public class Veterinario {
         this.sexo = sexo;
     }
 
-    public long getTelefone() {
-        return telefone;
+    public String getTelefoneVet() {
+        return telefoneVet;
     }
 
-    public void setTelefone(long telefone) {
-        this.telefone = telefone;
+    public void setTelefoneVet(String telefoneVet) {
+        this.telefoneVet = telefoneVet;
     }
 
     public int getCrmv() {

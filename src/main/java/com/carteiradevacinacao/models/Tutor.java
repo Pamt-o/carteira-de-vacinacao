@@ -29,13 +29,16 @@ public class Tutor {
     private String nome;
 
     @Column(name="DATA_DE_NASCIMENTO")
+   
     private java.sql.Date dataNascimento;
+
+    
 
     @Column(name="EMAIL", length = 50)
     private String email;
 
     @Column(name="TELEFONE", length = 20)
-    private long telefone;
+    private String telefone;
 
     @Column(name="SEXO", length = 10)
     private String sexo;
@@ -67,6 +70,7 @@ public class Tutor {
         this.nome = nome;
     }
 
+
     public java.sql.Date getDataNascimento() {
         return dataNascimento;
     }
@@ -83,11 +87,11 @@ public class Tutor {
         this.email = email;
     }
 
-    public long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
